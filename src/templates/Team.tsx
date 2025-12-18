@@ -20,7 +20,7 @@ const Team = () => (
     description="Dipersembahkan oleh tim hebat dibalik Grill Party."
   >
     {/* Menggunakan grid 2 kolom agar pas untuk 2 orang (atau 3 jika Dafit dihitung 2 slot) */}
-    <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+    <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3">
       {/* Anggota 1: Dafit */}
       <TeamMember
         img="/assets/images/avatar.png" // Ganti foto Dafit
@@ -35,13 +35,12 @@ const Team = () => (
         role="Desain Grafis"
       />
 
-       <TeamMember
+      <TeamMember
         img="/assets/images/avatar.png" // Ganti foto Dafit
         name="Andrew"
         role="Coding & Program Game"
       />
     </div>
-    
   </Section>
 );
 
