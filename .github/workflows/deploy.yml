@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # Versi 4 (Terbaru)
 
       - name: Detect package manager
         id: detect-package-manager
@@ -40,50 +40,35 @@ jobs:
           fi
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4 # Versi 4 (Terbaru)
         with:
           node-version: "18"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v5 # Versi 5 (Terbaru)
         with:
           static_site_generator: next
 
-      # --- PERBAIKAN: CACHE BUSTING (Ganti key agar cache lama dibuang) ---
       - name: Restore cache
-        uses: actions/cache@v4
+        uses: actions/cache@v4 # Versi 4 (Terbaru)
         with:
           path: |
             .next/cache
-          # Saya tambahkan '-new' di belakang key untuk memaksa cache baru
-          key: ${{ runner.os }}-nextjs-new-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # Saya tambahkan '-v2' untuk memaksa refresh cache agar tidak nyangkut
+          key: ${{ runner.os }}-nextjs-v2-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-new-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-v2-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
 
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
       - name: Build with Next.js
-        # Menambahkan env variable agar log lebih jelas
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
-      # --- DEBUG STEP: Cek apakah folder 'out' benar-benar ada ---
-      - name: Check Output Folder (Debug)
-        run: |
-          echo "Listing root directory:"
-          ls -la
-          echo "-----------------------"
-          if [ -d "./out" ]; then
-            echo "✅ Folder 'out' DITEMUKAN! Isinya:"
-            ls -la ./out
-          else
-            echo "❌ Folder 'out' TIDAK DITEMUKAN. Build gagal menghasilkan export."
-            exit 1
-          fi
-
+      # STEP PENTING: Upload Artifact (WAJIB Versi v3 ke atas)
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3 
         with:
           path: ./out
 
@@ -96,4 +81,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4 # Versi 4 (Terbaru)
