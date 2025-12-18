@@ -4,7 +4,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 // Pastikan ini sesuai nama repository Anda
-const baseUrl = '/landingpageaja';
+const baseUrl = '/SkyBearer';
 
 module.exports = withBundleAnalyzer({
   poweredByHeader: false,
