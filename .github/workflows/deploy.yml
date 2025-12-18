@@ -2,9 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # Pastikan branch utama Anda bernama 'main' atau 'master'
-
-  # Izinkan deploy manual dari tab Actions
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -17,12 +15,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Update ke v4
 
       - name: Detect package manager
         id: detect-package-manager
@@ -43,18 +40,18 @@ jobs:
           fi
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4 # Update ke v4
         with:
           node-version: "18"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5 # Update ke v5
         with:
           static_site_generator: next
 
       - name: Restore cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4 # Update ke v4
         with:
           path: |
             .next/cache
@@ -69,11 +66,10 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3 # Update ke v3 (Sangat Penting)
         with:
           path: ./out
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages
@@ -83,4 +79,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4 # Update ke v4
