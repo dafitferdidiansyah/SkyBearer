@@ -34,7 +34,14 @@ const Team = () => (
         name="Jalal"
         role="Desain Grafis"
       />
+
+       <TeamMember
+        img="/assets/images/avatar.png" // Ganti foto Dafit
+        name="Andrew"
+        role="Coding & Program Game"
+      />
     </div>
+    
   </Section>
 );
 
