@@ -3,7 +3,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-// Pastikan ini sesuai nama repository Anda
+// PENTING: Ganti jadi '/SkyBearer' sesuai nama repo di screenshot
 const baseUrl = '/SkyBearer';
 
 module.exports = withBundleAnalyzer({
@@ -13,11 +13,10 @@ module.exports = withBundleAnalyzer({
   assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || baseUrl,
   reactStrictMode: true,
 
-  // --- BAGIAN PENTING (JANGAN DIHAPUS) ---
-  output: 'export', // <--- INI WAJIB ADA AGAR MUNCUL FOLDER 'out'
-  // ----------------------------------------
+  // WAJIB ADA:
+  output: 'export',
 
   images: {
-    unoptimized: true, // <--- INI WAJIB AGAR GAMBAR TIDAK ERROR
+    unoptimized: true,
   },
 });

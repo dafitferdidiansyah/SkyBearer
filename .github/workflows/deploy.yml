@@ -50,23 +50,40 @@ jobs:
         with:
           static_site_generator: next
 
+      # --- PERBAIKAN: CACHE BUSTING (Ganti key agar cache lama dibuang) ---
       - name: Restore cache
         uses: actions/cache@v4
         with:
           path: |
             .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # Saya tambahkan '-new' di belakang key untuk memaksa cache baru
+          key: ${{ runner.os }}-nextjs-new-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-new-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
 
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
       - name: Build with Next.js
+        # Menambahkan env variable agar log lebih jelas
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
+      # --- DEBUG STEP: Cek apakah folder 'out' benar-benar ada ---
+      - name: Check Output Folder (Debug)
+        run: |
+          echo "Listing root directory:"
+          ls -la
+          echo "-----------------------"
+          if [ -d "./out" ]; then
+            echo "✅ Folder 'out' DITEMUKAN! Isinya:"
+            ls -la ./out
+          else
+            echo "❌ Folder 'out' TIDAK DITEMUKAN. Build gagal menghasilkan export."
+            exit 1
+          fi
+
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3 # This is the critical fix (v3)
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
