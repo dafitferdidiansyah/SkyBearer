@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4 # Versi 4 (Terbaru)
+        uses: actions/checkout@v4
 
       - name: Detect package manager
         id: detect-package-manager
@@ -40,25 +40,26 @@ jobs:
           fi
 
       - name: Setup Node
-        uses: actions/setup-node@v4 # Versi 4 (Terbaru)
+        uses: actions/setup-node@v4
         with:
           node-version: "18"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
+      # --- PERBAIKAN DI SINI ---
+      # Kita hapus "with: static_site_generator: next" 
+      # Biarkan dia berjalan default agar tidak merusak next.config.js
       - name: Setup Pages
-        uses: actions/configure-pages@v5 # Versi 5 (Terbaru)
-        with:
-          static_site_generator: next
+        uses: actions/configure-pages@v5
+      # -------------------------
 
       - name: Restore cache
-        uses: actions/cache@v4 # Versi 4 (Terbaru)
+        uses: actions/cache@v4
         with:
           path: |
             .next/cache
-          # Saya tambahkan '-v2' untuk memaksa refresh cache agar tidak nyangkut
-          key: ${{ runner.os }}-nextjs-v2-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
-            ${{ runner.os }}-nextjs-v2-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
 
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
@@ -66,9 +67,8 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
-      # STEP PENTING: Upload Artifact (WAJIB Versi v3 ke atas)
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3 
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
@@ -81,4 +81,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # Versi 4 (Terbaru)
+        uses: actions/deploy-pages@v4
