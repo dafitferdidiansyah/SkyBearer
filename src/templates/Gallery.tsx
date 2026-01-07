@@ -21,25 +21,25 @@ const Gallery = () => (
     <div className="hide-scrollbar mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-8">
       {/* Gambar 1 */}
       <GalleryImage
-        src="/assets/images/feature.svg" // Ganti dengan screenshot gameplay 1
+        src="/SkyBearer/assets/images/contoh2.png" // Ganti dengan screenshot gameplay 1
         alt="Gameplay Masak"
       />
 
       {/* Gambar 2 */}
       <GalleryImage
-        src="/assets/images/feature2.svg" // Ganti dengan screenshot gameplay 2
+        src="/SkyBearer/assets/images/contoh2.png" // Ganti dengan screenshot gameplay 2
         alt="Koleksi Sate"
       />
 
       {/* Gambar 3 */}
       <GalleryImage
-        src="/assets/images/feature3.svg" // Ganti dengan screenshot gameplay 3
+        src="/SkyBearer/assets/images/contoh2.png" // Ganti dengan screenshot gameplay 3
         alt="Party Mode"
       />
 
       {/* Gambar 4 */}
       <GalleryImage
-        src="/assets/images/feature.svg" // Ganti dengan screenshot gameplay 4
+        src="/SkyBearer/assets/images/contoh2.png" // Ganti dengan screenshot gameplay 4
         alt="Level Boss"
       />
     </div>

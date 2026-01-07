@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors'); // <--- 1. TAMBAHKAN INI
+
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -15,6 +17,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        orange: colors.orange, // <--- 2. TAMBAHKAN INI AGAR WARNA ORANGE AKTIF
         primary: {
           100: '#E6F6FE',
           200: '#C0EAFC',

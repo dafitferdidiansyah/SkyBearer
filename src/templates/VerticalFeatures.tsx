@@ -10,7 +10,7 @@ const VerticalFeatures = () => (
     <VerticalFeatureRow
       title="Klik & Geser (Drag & Drop)"
       description="Kontrol yang mudah! Ambil tusuk sate, geser ke panggangan, dan sajikan ke pelanggan sebelum mereka marah."
-      image="/assets/images/feature.svg"
+      image="/assets/images/klikandrag.svg"
       imageAlt="Ilustrasi Gameplay"
     />
 
@@ -18,7 +18,7 @@ const VerticalFeatures = () => (
     <VerticalFeatureRow
       title="Visual Makanan Lezat"
       description="Nikmati grafik sate ayam, kambing, dan bumbu kacang yang terlihat nyata dan bikin lapar pemainnya."
-      image="/assets/images/feature2.svg"
+      image="/assets/images/visualmakanan.svg"
       imageAlt="Ilustrasi Sate Enak"
       reverse
     />
@@ -27,7 +27,7 @@ const VerticalFeatures = () => (
     <VerticalFeatureRow
       title="Tantangan Puzzle Arcade"
       description="Setiap level punya tingkat kesulitan berbeda. Atur strategi membakar agar sate tidak gosong!"
-      image="/assets/images/feature3.svg"
+      image="/assets/images/levelup.svg"
       imageAlt="Ilustrasi Tantangan"
     />
   </Section>

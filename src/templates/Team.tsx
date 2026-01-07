@@ -23,20 +23,20 @@ const Team = () => (
     <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3">
       {/* Anggota 1: Dafit */}
       <TeamMember
-        img="/assets/images/avatar.png" // Ganti foto Dafit
+        img="/SkyBearer/assets/images/dafit.jpeg" // Ganti foto Dafit
         name="Dafit"
         role="Coding & Program Game"
       />
 
       {/* Anggota 2: Jalal */}
       <TeamMember
-        img="/assets/images/avatar.png" // Ganti foto Jalal
+        img="/SkyBearer/assets/images/jalal.jpeg" // Ganti foto Jalal
         name="Jalal"
         role="Desain Grafis"
       />
 
       <TeamMember
-        img="/assets/images/avatar.png" // Ganti foto Dafit
+        img="/SkyBearer/assets/images/andre.jpeg" // Ganti foto Dafit
         name="Andrew"
         role="Coding & Program Game"
       />
