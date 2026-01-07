@@ -21,7 +21,7 @@ const FAQ = () => (
       />
       <FAQItem
         question="Bisa main bareng teman (Multiplayer)?"
-        answer="Tentu saja! Kamu bisa mabar hingga 4 orang dalam satu dapur via koneksi WiFi atau Online."
+        answer="untuk saat ini belum bisa, mungkin kalau sudah banyak yang main kita tambahkan mode multiplayer."
       />
       <FAQItem
         question="Spesifikasi HP minimum apa?"
