@@ -29,8 +29,19 @@ const VerticalFeatureRow = (props: IVerticalFeatureRowProps) => {
         <div className="mt-6 text-xl leading-9">{props.description}</div>
       </div>
 
-      <div className="w-full p-6 sm:w-1/2">
-        <img src={`${router.basePath}${props.image}`} alt={props.imageAlt} />
+      {/* Container Lingkaran Luar (Border Merah) */}
+      <div className="flex w-full justify-center p-6 sm:w-1/2">
+        <div className="rounded-full">
+          <img
+            src={`${router.basePath}${props.image}`}
+            alt={props.imageAlt}
+            // TAMBAHAN PENTING:
+            // 1. rounded-full: Biar gambarnya bulat
+            // 2. object-cover: Biar gambar tidak gepeng kalau aslinya persegi panjang
+            // 3. w & h: Ukuran disamakan biar jadi lingkaran sempurna (sesuaikan angkanya)
+            className="size-70 rounded-full object-cover"
+          />
+        </div>
       </div>
     </div>
   );

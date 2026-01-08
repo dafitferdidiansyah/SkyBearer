@@ -16,6 +16,11 @@ module.exports = {
       '6xl': '4rem',
     },
     extend: {
+      fontFamily: {
+        // Ini membuat class 'font-fredoka' jadi berfungsi
+        fredoka: ['Fredoka', 'sans-serif'],
+      },
+      // --------------------------------------------------
       colors: {
         orange: colors.orange, // <--- 2. TAMBAHKAN INI AGAR WARNA ORANGE AKTIF
         primary: {

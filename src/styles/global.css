@@ -1,5 +1,17 @@
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
+
+/* --- TAMBAHAN BARU UNTUK SEMBUNYIKAN SCROLLBAR --- */
+@layer utilities {
+  /* Hilangkan scrollbar untuk Chrome, Safari, dan Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hilangkan scrollbar untuk IE, Edge, dan Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE dan Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}

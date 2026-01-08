@@ -19,7 +19,7 @@ const Hero = () => (
         <NavbarTwoColumns logo={<Logo xl />}>
           <li>
             <Link
-              href="#"
+              href="https://dafitferdidiansyah.github.io/SkyBearer"
               className="font-bold text-gray-800 hover:text-red-600"
             >
               Tentang Game
@@ -27,7 +27,7 @@ const Hero = () => (
           </li>
           <li>
             <Link
-              href="#"
+              href="https://play.google.com/store/games?hl=id&gl=US"
               className="font-bold text-gray-800 hover:text-red-600"
             >
               Download
@@ -63,7 +63,7 @@ const Hero = () => (
             }
             description="Grill Party: Game Puzzle Arcade yang bikin lapar. Cukup KLIK dan GESER untuk memanggang sate pesanan pelanggan."
             button={
-              <Link href="#">
+              <Link href="https://play.google.com/store/games?hl=id&gl=US">
                 <Button xl>Mainkan Sekarang</Button>
               </Link>
             }

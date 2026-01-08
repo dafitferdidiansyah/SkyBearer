@@ -25,7 +25,7 @@ const FAQ = () => (
       />
       <FAQItem
         question="Spesifikasi HP minimum apa?"
-        answer="Game ini ringan! Android 5.0 ke atas dengan RAM 2GB sudah lancar jaya untuk membakar sate."
+        answer="Game ini ringan! Android 5.0 ke atas dengan RAM 2GB sudah lancar untuk membakar sate."
       />
     </div>
   </Section>

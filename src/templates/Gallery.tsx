@@ -18,7 +18,7 @@ const Gallery = () => (
     description="Intip aksi seru para juragan sate saat melayani pelanggan!"
   >
     {/* Container Carousel (Scroll Samping) */}
-    <div className="hide-scrollbar mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-8">
+    <div className="scrollbar-hide mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-8">
       {/* Gambar 1 */}
       <GalleryImage
         src="/SkyBearer/assets/images/contoh2.png" // Ganti dengan screenshot gameplay 1
@@ -42,10 +42,6 @@ const Gallery = () => (
         src="/SkyBearer/assets/images/contoh2.png" // Ganti dengan screenshot gameplay 4
         alt="Level Boss"
       />
-    </div>
-
-    <div className="mt-2 text-center text-sm text-gray-400">
-      (Geser ke samping untuk melihat lebih banyak)
     </div>
   </Section>
 );

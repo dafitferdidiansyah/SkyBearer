@@ -8,8 +8,18 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang={AppConfig.locale}>
-        <Head />
-        <body className="bg-orange-200 text-gray-800">
+        <Head>
+          {/* --- TAMBAHAN BARU: Link Google Fonts (Fredoka) --- */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap"
+            rel="stylesheet"
+          />
+          {/* -------------------------------------------------- */}
+        </Head>
+
+        <body className="font-fredoka bg-orange-200 text-gray-800">
           <Main />
           <NextScript />
         </body>
